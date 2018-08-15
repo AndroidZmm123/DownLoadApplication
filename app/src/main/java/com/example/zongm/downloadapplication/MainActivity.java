@@ -141,14 +141,15 @@ public class MainActivity extends AppCompatActivity {
                 //String p = q.getString(q.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
                 String fileUri = q.getString(q.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
                 Log.e("zmm", "虚拟路径---------->" + fileUri);
+                //file:///storage/emulated/0/Download/1533720247_BYah3yp6EGVw_a8cf53f3efa5a2bef1951e406fc9b8be-6.apk
 
                 String path = ImageUtils.getPath(this, Uri.parse(fileUri));
                 Log.e("zmm", "真实路径---------->" + path);
-
+                // /storage/emulated/0/Download/1533720247_BYah3yp6EGVw_a8cf53f3efa5a2bef1951e406fc9b8be-6.apk
                 if (!TextUtils.isEmpty(path)) {
                     downloaded = ImageUtils.getUri(this, path);
                     Log.e("zmm", "转换过后的虚拟路径------------->" + downloaded);
-
+                    //content://com.example.zongm.downloadapplication.provider/external_storage_root/Download/1533720247_BYah3yp6EGVw_a8cf53f3efa5a2bef1951e406fc9b8be-6.apk
                 }
                 if (downloaded != Uri.EMPTY) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
